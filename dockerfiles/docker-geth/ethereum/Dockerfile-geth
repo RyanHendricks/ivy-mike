@@ -1,0 +1,4 @@
+FROM ethereum/client-go:latest
+
+EXPOSE 8547
+ENTRYPOINT ["--syncmode='light'","--rpc","--ws","--wsorigins='*'","--rpcvhosts='*'","--cache","1024","--graphql","--graphql.corsdomain='*'","--graphql.vhosts='*'"]

@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: iris-001
+  namespace: default
+  labels:
+    service: iris-001
+spec:
+  ports:
+  - name: "p2p-iris"
+    port: 36656
+    targetPort: 36656
+  - name: "rpc-iris"
+    port: 36657
+    targetPort: 36657
+  - name: "abci-iris"
+    port: 36658
+    targetPort: 36658
+  - name: "metrics-iris"
+    port: 36660
+    targetPort: 36660
+  - name: "lcd-iris"
+    port: 3317
+    targetPort: 3317
+  selector:
+    service: iris-001
+

@@ -1,0 +1,88 @@
+version: '3.2'
+
+services:
+  docker-cosmos:
+    container_name: cosmos-mainnet
+    build:
+      context: ./docker-cosmos
+      dockerfile: Dockerfile
+    environment: 
+      - MONIKER=NodeName
+      - CHAIN_ID=cosmoshub-2
+      - GENESIS_URL=https://raw.githubusercontent.com/cosmos/launch/master/genesis.json
+      - SEEDS=0141b28d81db4e5b55736a6367cf044c35a8c29e@35.245.96.132:26656
+      - BOOTSTRAP=TRUE
+      - GAIAD_HOME=/.gaiad
+      # - CACHE_SIZE=10000
+    restart: always
+    ports:
+      - "26656:26656"
+      - "26657:26657"
+      - "26658:26658"
+      - "1317:1317" # for rest-server
+    volumes:
+      - cosmos-data:/.gaiad
+  docker-irisnet:
+    container_name: iris-mainnet
+    build:
+      context: ./docker-irisnet
+      dockerfile: Dockerfile
+    environment: 
+      - MONIKER=NodeName
+      - CHAIN_ID=irishub
+      - GENESIS_URL=https://raw.githubusercontent.com/irisnet/betanet/master/config/genesis.json
+      - SEEDS=6a6de770deaa4b8c061dffd82e9c7f4d40c2165d@seed-1.mainnet.irisnet.org:26656,a17d7923293203c64ba75723db4d5f28e642f469@seed-2.mainnet.irisnet.org:26656
+      - BOOTSTRAP=TRUE
+      - GAIAD_HOME=/.iris
+      # - CACHE_SIZE=10000
+    restart: always
+    ports:
+      - "26656:26656"
+      - "26657:26657"
+      - "26658:26658"
+      - "1317:1317" # for rest-server
+    volumes:
+      - iris-data:/.iris
+  docker-kava:
+    container_name: kava-testnet
+    build:
+      context: ./docker-kava
+      dockerfile: Dockerfile
+    environment: 
+      - MONIKER=NodeName
+      - CHAIN_ID=kava-testnet-2000
+      - GENESIS_URL=https://raw.githubusercontent.com/Kava-Labs/kava-testnets/master/2000/genesis.json
+      - KVD_HOME=/.kvd
+      - SEEDS=01257db868b80e97ab2500d6dbd4e363ea66bce9@167.71.82.149:26656,029bf9259159299abbce18f80d7b962f43c02cd8@52.15.93.51:26656
+      # - CACHE_SIZE=10000
+    restart: always
+    ports:
+      - "26656:26656"
+      - "26657:26657"
+      - "26658:26658"
+      - "1317:1317" # for rest-server
+    volumes:
+      - kava-data:/.kvd
+  docker-regen:
+    container_name: regen-testnet
+    build:
+      context: ./docker-regen
+      dockerfile: Dockerfile
+    environment: 
+      - MONIKER=Regen-Node
+      - CHAIN_ID=regen-test-1001
+      - GENESIS_URL=https://raw.githubusercontent.com/regen-network/testnets/master/regen-test-1001/genesis.json
+      - SEEDS=bcc81bbb45945307c8b32a276fa9700f1164f3b7@149.28.225.246:26656, caed8cafd56b23739aea8fdf339caaac5a453b8c@66.42.79.197:26656
+    restart: always
+    ports:
+      - "26656:26656"
+      - "26657:26657"
+      - "26658:26658"
+      - "1317:1317" # for rest-server
+    volumes:
+      - regen-data:/.regen
+volumes:
+  cosmos-data:
+  iris-data:
+  kava-data:
+  regen-data:

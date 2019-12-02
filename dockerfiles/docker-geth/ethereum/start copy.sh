@@ -1,0 +1,1 @@
+geth --syncmode "fast" --rpc --ws --wsorigins="*" --rpcvhosts="*" --cache 1024

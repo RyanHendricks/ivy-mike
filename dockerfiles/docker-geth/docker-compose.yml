@@ -1,0 +1,90 @@
+version: "3"
+services:
+  graph-node:
+    image: graphprotocol/graph-node:v0.5.0
+    container_name: graph-node
+    ports:
+      - "8000:8000"
+      - "8001:8001"
+      - "8020:8020"
+    depends_on:
+      - ipfs
+      - postgres
+      - geth
+    environment:
+      postgres_host: postgres:5432
+      postgres_user: graph-node
+      postgres_pass: let-me-in
+      postgres_db: graph-node
+      ipfs: "ipfs:5001"
+      ethereum: "mainnet:ws://127.0.0.1:8546"
+  ipfs:
+    image: ipfs/go-ipfs
+    container_name: ipfs
+    ports:
+      - "5001:5001"
+    volumes:
+      - ./data/ipfs:/data/ipfs
+  postgres:
+    image: postgres
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: graph-node
+      POSTGRES_PASSWORD: let-me-in
+      POSTGRES_DB: graph-node
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+  geth:
+    # build: ./ethereum
+    image: ethereum-go:latest
+    container_name: geth
+    command: /geth --syncmode "fast" --rpc --ws --wsorigins="*" --rpcvhosts="*" --cache 1024
+    ports:
+      - "8545:8545"
+      - "8546:8546"
+    volumes:
+      - ./data/geth:/data/geth
+  # prisma:
+  #   image: prismagraphql/prisma:1.24
+  #   restart: always
+  #   ports:
+  #   - "4466:4466"
+  #   environment:
+  #     PRISMA_CONFIG: |
+  #       port: 4466
+  #       databases:
+  #         default:
+  #           connector: postgres:5432
+  #           host: postgres:5432
+  #           port: 5432
+  #           # port: 3306
+  #           connectionLimit: 5
+  #           user: graph-node
+  #           password: let-me-in
+  #           migrations: true
+  #           rawAccess: true
+  #           database: graph-node
+  #     #       schema: public
+
+      #       connector: postgres
+      # migrations: false # be sure this is set to false
+      # host: localhost
+      # port: 5432
+      # user: postgres
+      # password: postgres
+      # database: postgres
+      # schema: public
+  # postgresprisma:
+  #   image: postgres:10.5
+  #   restart: always
+  #   ports:
+  #     - "5432:5431"
+  #   environment:
+  #     POSTGRES_USER: prisma
+  #     POSTGRES_PASSWORD: prisma
+  #   volumes:
+  #     - postgres:/var/lib/postgresql/data
+  #   volumes:
+  #     - ./data/postgres:/var/lib/postgresql/data

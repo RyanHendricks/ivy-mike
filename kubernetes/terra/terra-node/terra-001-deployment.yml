@@ -1,0 +1,60 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  namespace: default
+  labels:
+    service: terra-001
+  name: terra-001
+spec:
+  strategy:
+    type: Recreate
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        service: terra-001
+    spec:
+      containers:
+      - name: terra-001
+        image: ryanhendricks/docker-terra:latest
+        imagePullPolicy: Always
+        env:
+          - name: MONIKER
+            value: "Terra-Node"
+          - name: CHAIN_ID
+            value: columbus-2
+          - name: BOOTSTRAP
+            value: "TRUE"
+          - name: TERRAD_HOME
+            value: /.terrad
+          - name: PROMETHEUS
+            value: "true"
+          - name: PROMETHEUS_PORT
+            value: "26650"
+          - name: MAX_OPEN_CONNECTIONS
+            value: "10"
+          - name: LCD_PORT
+            value: "1327"
+          - name: RPC_LADDR_PORT
+            value: "26647"
+          - name: CORS_ALLOWED_ORIGINS
+            value: "*"
+          - name: CONNECTIONS_LADDR_PORT
+            value: "26646"
+          - name: PROXY_APP_PORT
+            value: "26648"
+        volumeMounts:
+          - mountPath: /.terrad
+            name: terra-001
+        resources:
+          requests:
+            cpu: 500m
+            memory: 1Gi
+          limits:
+            cpu: 1000m
+            memory: 2Gi
+      restartPolicy: Always
+      volumes:
+      - name: terra-001
+        persistentVolumeClaim:
+          claimName: terra-001

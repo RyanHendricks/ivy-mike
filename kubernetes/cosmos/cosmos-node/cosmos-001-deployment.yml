@@ -1,0 +1,38 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  namespace: default
+  labels:
+    service: cosmos-001
+  name: cosmos-001
+spec:
+  strategy:
+    type: Recreate
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        service: cosmos-001
+    spec:
+      containers:
+        - name: cosmos-001
+          image: ryanhendricks/docker-cosmos:latest
+          imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                name: cosmos-env
+          volumeMounts:
+            - mountPath: /.gaiad
+              name: cosmos-001
+          resources:
+            requests:
+              cpu: 1000m
+              memory: 2Gi
+            limits:
+              cpu: 1200m
+              memory: 3Gi
+      restartPolicy: Always
+      volumes:
+        - name: cosmos-001
+          persistentVolumeClaim:
+            claimName: cosmos-001

@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tezos-002
+  namespace: default
+  labels:
+    service: tezos-002
+spec:
+  ports:
+  - name: "tezostwo-8732"
+    port: 8732
+    targetPort: 8732
+  - name: "tezostwo-9732"
+    port: 9732
+    targetPort: 9732
+  selector:
+    service: tezos-002
+
+
+
