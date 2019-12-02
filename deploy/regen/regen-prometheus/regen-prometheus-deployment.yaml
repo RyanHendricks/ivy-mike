@@ -1,0 +1,35 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  namespace: default
+  labels:
+    service: regen-prometheus
+  name: regen-prometheus
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        service: regen-prometheus
+    spec:
+      containers:
+      - name: regen-prometheus
+        imagePullPolicy: Always
+        env:
+          - name: PROMETHEUS_L_ADDR
+            value: "0.0.0.0"
+          - name: PROMETHEUS_PORT
+            value: "9050"
+          - name: JOBNAME
+            value: "regen-001"
+          - name: TARGET_HOST
+            value: "regen-001"
+          - name: TARGET_PORT
+            value: "56660"
+          - name: INSTANCE
+            value: "regen-001"
+        image: ryanhendricks/docker-prometheus:latest
+        resources: {}
+      restartPolicy: Always

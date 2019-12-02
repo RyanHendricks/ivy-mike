@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: terra-001
+  namespace: default
+  labels:
+    service: terra-001
+spec:
+  ports:
+  - name: "p2p-terra"
+    port: 26646
+    targetPort: 26646
+  - name: "rpc-terra"
+    port: 26647
+    targetPort: 26647
+  - name: "abci-terra"
+    port: 26648
+    targetPort: 26648
+  - name: "metrics-terra"
+    port: 26650
+    targetPort: 26650
+  - name: "lcd-terra"
+    port: 1327
+    targetPort: 1327
+  selector:
+    service: terra-001

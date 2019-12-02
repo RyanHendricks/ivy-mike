@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: default
+  labels:
+    service: terra-prometheus
+  name: terra-prometheus
+spec:
+  ports:
+  - name: "terra-prometheus"
+    port: 9060
+    targetPort: 9060
+  selector:
+    service: terra-prometheus

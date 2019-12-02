@@ -1,0 +1,127 @@
+# https://github.com/kubernetes/ingress-nginx/blob/master/deploy/mandatory.yaml
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: nginx-configuration-01
+  namespace: ingress-nginx
+  labels:
+    app: ingress-nginx-01
+
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: tcp-services-01
+  namespace: ingress-nginx
+  labels:
+    app: ingress-nginx-01
+data:
+  26656: "default/cosmos-001:26656"
+  26657: "default/cosmos-001:26657"
+  26658: "default/cosmos-001:26658"
+  26660: "default/cosmos-001:26660"
+  1317: "default/cosmos-001:1317"
+  9020: "default/cosmos-prometheus:9020"
+  36656: "default/iris-001:36656"
+  36657: "default/iris-001:36657"
+  36658: "default/iris-001:36658"
+  36660: "default/iris-001:36660"
+  3317: "default/iris-001:3317"
+  9030: "default/iris-prometheus:9030"
+  46656: "default/kava-001:46656"
+  46657: "default/kava-001:46657"
+  46658: "default/kava-001:46658"
+  46660: "default/kava-001:46660"
+  4317: "default/kava-001:4317"
+  9040: "default/kava-prometheus:9040"
+  56656: "default/regen-001:56656"
+  56657: "default/regen-001:56657"
+  56658: "default/regen-001:56658"
+  56660: "default/regen-001:56660"
+  5317: "default/regen-001:5317"
+  9050: "default/regen-prometheus:9050"
+  3000: "default/grafana:3000"
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: udp-services-01
+  namespace: ingress-nginx
+  labels:
+    app: ingress-nginx-01
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-ingress-controller-01
+  namespace: ingress-nginx
+  labels:
+    app: ingress-nginx-01
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ingress-nginx-01
+  template:
+    metadata:
+      labels:
+        app: ingress-nginx-01
+      annotations:
+        prometheus.io/port: "10254"
+        prometheus.io/scrape: "true"
+    spec:
+      serviceAccountName: nginx-ingress-serviceaccount
+      containers:
+        - name: nginx-ingress-controller
+          image: quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.24.1
+          args:
+            - /nginx-ingress-controller
+            - --configmap=$(POD_NAMESPACE)/nginx-configuration-01
+            - --tcp-services-configmap=$(POD_NAMESPACE)/tcp-services-01
+            - --udp-services-configmap=$(POD_NAMESPACE)/udp-services-01
+            - --publish-service=$(POD_NAMESPACE)/ingress-nginx-01
+            - --annotations-prefix=nginx.ingress.kubernetes.io
+          securityContext:
+            allowPrivilegeEscalation: true
+            capabilities:
+              drop:
+                - ALL
+              add:
+                - NET_BIND_SERVICE
+            # www-data -> 33
+            runAsUser: 33
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+          ports:
+            - name: http
+              containerPort: 80
+            - name: https
+              containerPort: 443
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /healthz
+              port: 10254
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 10
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /healthz
+              port: 10254
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 10
