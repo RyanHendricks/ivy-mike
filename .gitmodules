@@ -1,0 +1,3 @@
+[submodule "docker/docker-cosmos"]
+	path = docker/docker-cosmos
+	url = https://github.com/ryanhendricks/docker-cosmos
