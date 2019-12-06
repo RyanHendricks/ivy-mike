@@ -4,3 +4,6 @@
 [submodule "docker/docker-irisnet"]
 	path = docker/docker-irisnet
 	url = https://github.com/RyanHendricks/docker-irisnet
+[submodule "docker/docker-kava"]
+	path = docker/docker-kava
+	url = https://github.com/RyanHendricks/docker-kava
