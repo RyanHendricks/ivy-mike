@@ -1,3 +1,6 @@
 [submodule "docker/docker-cosmos"]
 	path = docker/docker-cosmos
 	url = https://github.com/ryanhendricks/docker-cosmos
+[submodule "docker/docker-irisnet"]
+	path = docker/docker-irisnet
+	url = https://github.com/RyanHendricks/docker-irisnet
