@@ -20,13 +20,13 @@ spec:
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
-                name: cosmos-env
+                name: cosmos-config
           volumeMounts:
             - mountPath: /.gaiad
               name: cosmos-001
           resources:
             requests:
-              cpu: 1000m
+              cpu: 400m
               memory: 2Gi
             limits:
               cpu: 1200m

@@ -24,4 +24,4 @@ data:
 kind: ConfigMap
 metadata:
   creationTimestamp: null
-  name: cosmos-env
+  name: cosmos-config

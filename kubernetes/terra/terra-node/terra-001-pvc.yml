@@ -4,9 +4,9 @@ metadata:
   name: terra-001
   namespace: default
 spec:
-  storageClassName: ssd
+  storageClassName: faster
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 60Gi
+      storage: 20Gi

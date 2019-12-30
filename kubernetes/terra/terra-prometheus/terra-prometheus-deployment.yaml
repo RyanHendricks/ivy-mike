@@ -15,21 +15,11 @@ spec:
         service: terra-prometheus
     spec:
       containers:
-      - name: terra-prometheus
-        imagePullPolicy: Always
-        env:
-          - name: PROMETHEUS_L_ADDR
-            value: "0.0.0.0"
-          - name: PROMETHEUS_PORT
-            value: "9060"
-          - name: JOBNAME
-            value: "terra-001"
-          - name: TARGET_HOST
-            value: "terra-001"
-          - name: TARGET_PORT
-            value: "26650"
-          - name: INSTANCE
-            value: "terra-001"
-        image: ryanhendricks/docker-prometheus:latest
-        resources: {}
+        - name: terra-prometheus
+          imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                name: terra-config
+          image: ryanhendricks/docker-prometheus:latest
+          resources: {}
       restartPolicy: Always
