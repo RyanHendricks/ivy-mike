@@ -1,3 +1,8 @@
+gcp-admin:
+	kubectl create clusterrolebinding cluster-admin-binding \
+  --clusterrole cluster-admin \
+  --user $(gcloud config get-value account)
+
 common:
 	kubectl apply -f kubernetes/common/ -R
 
@@ -50,3 +55,7 @@ terra-prometheus:
 terra:
 	kubectl apply -f kubernetes/terra/terra-node/ -R
 	kubectl apply -f kubernetes/terra/terra-prometheus/ -R
+
+
+build-terra:
+	docker build --rm -f "docker/docker-terra/Dockerfile" -t docker-terra "docker/docker-terra"
