@@ -1,22 +1,23 @@
-# Blockchain Nodes
+# Ivy Mike
+
+## Blockchain Nodes
 
 This repo contains a collection of blockchain nodes built using Docker and Kubernetes.
-The default configurations (aimed at providing api/rpc connections) are deployable without further configuration although config modifications are easily implementable.
 
----
+The default configurations are aimed at providing api/rpc connections and are deployable 'out-of-the-box'.
 
-## Dockerfiles
+Additional information and configuration options for each node can be found in the respective subdirectory
 
-Additional information for each node can be found in the respective subdirectory
 
-- [Dockerfiles](./dockerfiles/README.md)
-  - [Cosmos](./dockerfiles/docker-cosmos/README.md#docker-cosmos)
-  - [Irisnet](./dockerfiles/docker-irisnet/README.md#docker-irisnet)
-  - [Regen](./dockerfiles/docker-regen/README.md#docker-regen)
-  - [Kava](./dockerfiles/docker-kava/README.md#docker-kava)
-  - [Terra](./dockerfiles/docker-terra/README.md#docker-terra)
-  - [Tezos](./dockerfiles/docker-tezos/README.md#docker-tezos)
-  - [Ethereum](./dockerfiles/docker-ethereum/README.md#docker-geth)
+- [Dockerfiles](./docs/dockerfiles.md)
+  - [Cosmos](./docker/docker-cosmos/README.md#docker-cosmos)
+  - [Irisnet](./docker/docker-irisnet/README.md#docker-irisnet)
+  - [Regen](./docker/docker-regen/README.md#docker-regen)
+  - [Kava](./docker/docker-kava/README.md#docker-kava)
+  - [Terra](./docker/docker-terra/README.md#docker-terra)
+  - [Tezos](./docker/docker-tezos/README.md#docker-tezos)
+  - [Ethereum](./docker/docker-ethereum/README.md#docker-geth)
+- [Kubernetes](./docs/kubernetes.md)
 
 
 ## Notes
@@ -24,29 +25,7 @@ Additional information for each node can be found in the respective subdirectory
 - Currently configured to run all the nodes on a single IP by modifying the port numbers.
 - Some of the networks may be obsolete but the template specs can easily be ported to the upgraded networks or new ones entirely.
 
-```bash
 
-# If running on GCP you mush run the following before deploying to the cluster
-kubectl create clusterrolebinding cluster-admin-binding \
-  --clusterrole cluster-admin \
-  --user $(gcloud config get-value account)
-# 
-
-```
-
-## Deployment
-
-Utilize the included Makefile or the following commands as needed
-
-```bash
-kubectl apply -f deploy/common/
-kubectl apply -f deploy/nginx-ingress/ -R
-kubectl apply -f deploy/cosmos/ -R
-kubectl apply -f deploy/iris/ -R
-kubectl apply -f deploy/kava/ -R
-kubectl apply -f deploy/regen/ -R
-
-```
 
 
 
