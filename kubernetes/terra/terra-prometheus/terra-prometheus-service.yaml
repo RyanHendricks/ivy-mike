@@ -8,7 +8,7 @@ metadata:
 spec:
   ports:
   - name: "terra-prometheus"
-    port: 9060
-    targetPort: 9060
+    port: 9050
+    targetPort: 9050
   selector:
     service: terra-prometheus

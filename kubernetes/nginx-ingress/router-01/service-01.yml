@@ -31,13 +31,9 @@ spec:
   - name: "cosmos-postgres"
     port: 5432
     targetPort: 5432
-  - name: "cosmos-indexer"
-    port: 8080
-    targetPort: 8080
   - name: "cosmos-prometheus"
     port: 9020
     targetPort: 9020
-
   - name: "p2p-iris"
     port: 36656
     targetPort: 36656
@@ -62,52 +58,25 @@ spec:
   - name: "iris-prometheus"
     port: 9030
     targetPort: 9030
-  - name: "p2p-kava"
-    port: 46656
-    targetPort: 46656
-  - name: "rpc-kava"
-    port: 46657
-    targetPort: 46657
-  - name: "abci-kava"
-    port: 46658
-    targetPort: 46658
-  - name: "metrics-kava"
-    port: 46660
-    targetPort: 46660
-  - name: "lcd-kava"
-    port: 4317
-    targetPort: 4317
-  - name: "kava-postgres"
-    port: 5434
-    targetPort: 5434
-  - name: "kava-indexer"
-    port: 8074
-    targetPort: 8074
-  - name: "kava-prometheus"
-    port: 9040
-    targetPort: 9040
-  - name: "p2p-regen"
+  - name: "p2p-terra"
     port: 56656
     targetPort: 56656
-  - name: "rpc-regen"
+  - name: "rpc-terra"
     port: 56657
     targetPort: 56657
-  - name: "abci-regen"
+  - name: "abci-terra"
     port: 56658
     targetPort: 56658
-  - name: "metrics-regen"
+  - name: "metrics-terra"
     port: 56660
     targetPort: 56660
-  - name: "lcd-regen"
+  - name: "lcd-terra"
     port: 5317
     targetPort: 5317
-  - name: "regen-postgres"
+  - name: "terra-postgres"
     port: 5435
     targetPort: 5435
-  - name: "regen-indexer"
-    port: 8075
-    targetPort: 8075
-  - name: "regen-prometheus"
+  - name: "terra-prometheus"
     port: 9050
     targetPort: 9050
   - name: "grafana"
