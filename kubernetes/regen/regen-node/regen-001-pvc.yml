@@ -4,7 +4,7 @@ metadata:
   name: regen-001
   namespace: default
 spec:
-  storageClassName: faster
+  # storageClassName: faster
   accessModes:
     - ReadWriteOnce
   resources:
