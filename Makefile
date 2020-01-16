@@ -22,7 +22,7 @@ build-images:
 	docker build --rm -f "docker/docker-irisnet/Dockerfile" -t docker-irisnet:latest docker/docker-irisnet
 	docker build --rm -f "docker/docker-terra/Dockerfile" -t docker-terra "docker/docker-terra"
 	docker build --rm -f "docker/docker-kava/Dockerfile" -t docker-kava:latest docker/docker-kava
-	docker build --rm -f "docker/docker-regen/Dockerfile" -t docker-regen:latest docker/docker-regen
+	# docker build --rm -f "docker/docker-regen/Dockerfile" -t docker-regen:latest docker/docker-regen
 
 
 
@@ -40,6 +40,9 @@ cosmos-test:
 
 iris:
 	docker-compose -f "dockerfiles/docker-irisnet/docker-compose.yml" up -d --build
+
+terra-compose:
+	docker-compose -f "docker/docker-terra/docker-compose.yml" up -d --build
 
 # kava:
 #   docker-compose -f "dockerfiles/docker-kava/docker-compose.yml" up -d --build
