@@ -9,62 +9,65 @@ spec:
   strategy:
     type: Recreate
   replicas: 1
+  selector:
+    matchLabels:
+      service: regen-001
   template:
     metadata:
       labels:
         service: regen-001
     spec:
       containers:
-      - name: regen-001
-        image: ryanhendricks/docker-regen:latest
-        imagePullPolicy: Always
-        env:
-          - name: MONIKER
-            value: "Regen-Test-1001"
-          - name: CHAIN_ID
-            value: regen-test-1001
-          - name: GENESIS_URL
-            value: https://raw.githubusercontent.com/regen-network/testnets/master/regen-test-1001/genesis.json
-          - name: SEEDS
-            value: 568fec0d1542472d65bb05a6213cd61336fbd780@165.22.47.74:26656
-          - name: REGEN_HOME
-            value: /.regen
-          - name: ADDR_BOOK_STRICT
-            value: "false"
-          - name: CACHE_SIZE
-            value: "10000"
-          - name: PROMETHEUS
-            value: "true"
-          - name: PROMETHEUS_LISTEN_ADDR
-            value: "56660"
-          - name: MAX_OPEN_CONNECTIONS
-            value: "10"
-          - name: BOOTSTRAP
-            value: "FALSE"
-          - name: LCD_PORT
-            value: "5317"
-          - name: RPC_LADDR_PORT
-            value: "56657"
-          - name: CORS_ALLOWED_ORIGINS
-            value: "*"
-          - name: CONNECTIONS_LADDR_PORT
-            value: "56656"
-          - name: PROXY_APP_PORT
-            value: "56658"
-          - name: MAX_PACKET_MSG_PAYLOAD_SIZE
-            value: "5000"
-        volumeMounts:
-          - mountPath: /.regen
-            name: regen-001
-        resources:
-          requests:
-            cpu: 500m
-            memory: 1Gi
-          limits:
-            cpu: 1000m
-            memory: 2Gi
+        - name: regen-001
+          image: ryanhendricks/docker-regen:latest
+          imagePullPolicy: Always
+          env:
+            - name: MONIKER
+              value: "Regen-Test-1001"
+            - name: CHAIN_ID
+              value: regen-test-1001
+            - name: GENESIS_URL
+              value: https://raw.githubusercontent.com/regen-network/testnets/master/regen-test-1001/genesis.json
+            - name: SEEDS
+              value: 568fec0d1542472d65bb05a6213cd61336fbd780@165.22.47.74:26656
+            - name: REGEN_HOME
+              value: /.regen
+            - name: ADDR_BOOK_STRICT
+              value: "false"
+            - name: CACHE_SIZE
+              value: "10000"
+            - name: PROMETHEUS
+              value: "true"
+            - name: PROMETHEUS_LISTEN_ADDR
+              value: "56660"
+            - name: MAX_OPEN_CONNECTIONS
+              value: "10"
+            - name: BOOTSTRAP
+              value: "FALSE"
+            - name: LCD_PORT
+              value: "5317"
+            - name: RPC_LADDR_PORT
+              value: "56657"
+            - name: CORS_ALLOWED_ORIGINS
+              value: "*"
+            - name: CONNECTIONS_LADDR_PORT
+              value: "56656"
+            - name: PROXY_APP_PORT
+              value: "56658"
+            - name: MAX_PACKET_MSG_PAYLOAD_SIZE
+              value: "5000"
+          volumeMounts:
+            - mountPath: /.regen
+              name: regen-001
+          resources:
+            requests:
+              cpu: 500m
+              memory: 1Gi
+            limits:
+              cpu: 1000m
+              memory: 2Gi
       restartPolicy: Always
       volumes:
-      - name: regen-001
-        persistentVolumeClaim:
-          claimName: regen-001
+        - name: regen-001
+          persistentVolumeClaim:
+            claimName: regen-001

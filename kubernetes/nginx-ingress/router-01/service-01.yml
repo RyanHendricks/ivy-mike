@@ -13,77 +13,76 @@ spec:
   selector:
     app: ingress-nginx-01
   ports:
-  - name: "p2p-cosmos"
-    port: 26656
-    targetPort: 26656
-  - name: "rpc-cosmos"
-    port: 26657
-    targetPort: 26657
-  - name: "abci-cosmos"
-    port: 26658
-    targetPort: 26658
-  - name: "metrics-cosmos"
-    port: 26660
-    targetPort: 26660
-  - name: "lcd-cosmos"
-    port: 1317
-    targetPort: 1317
-  - name: "cosmos-postgres"
-    port: 5432
-    targetPort: 5432
-  - name: "cosmos-prometheus"
-    port: 9020
-    targetPort: 9020
-  - name: "p2p-iris"
-    port: 36656
-    targetPort: 36656
-  - name: "rpc-iris"
-    port: 36657
-    targetPort: 36657
-  - name: "abci-iris"
-    port: 36658
-    targetPort: 36658
-  - name: "lcd-iris"
-    port: 3317
-    targetPort: 3317
-  - name: "metrics-iris"
-    port: 36660
-    targetPort: 36660
-  - name: "iris-postgres"
-    port: 5433
-    targetPort: 5433
-  - name: "iris-indexer"
-    port: 8079
-    targetPort: 8079
-  - name: "iris-prometheus"
-    port: 9030
-    targetPort: 9030
-  - name: "p2p-terra"
-    port: 56656
-    targetPort: 56656
-  - name: "rpc-terra"
-    port: 56657
-    targetPort: 56657
-  - name: "abci-terra"
-    port: 56658
-    targetPort: 56658
-  - name: "metrics-terra"
-    port: 56660
-    targetPort: 56660
-  - name: "lcd-terra"
-    port: 5317
-    targetPort: 5317
-  - name: "terra-postgres"
-    port: 5435
-    targetPort: 5435
-  - name: "terra-prometheus"
-    port: 9050
-    targetPort: 9050
-  - name: "grafana"
-    port: 3000
-    targetPort: 3000
+    - name: "p2p-cosmos"
+      port: 26656
+      targetPort: 26656
+    - name: "rpc-cosmos"
+      port: 26657
+      targetPort: 26657
+    - name: "abci-cosmos"
+      port: 26658
+      targetPort: 26658
+    - name: "metrics-cosmos"
+      port: 26660
+      targetPort: 26660
+    - name: "lcd-cosmos"
+      port: 1317
+      targetPort: 1317
+    - name: "cosmos-postgres"
+      port: 5432
+      targetPort: 5432
+    - name: "cosmos-prometheus"
+      port: 9020
+      targetPort: 9020
+    - name: "p2p-iris"
+      port: 36656
+      targetPort: 36656
+    - name: "rpc-iris"
+      port: 36657
+      targetPort: 36657
+    - name: "abci-iris"
+      port: 36658
+      targetPort: 36658
+    - name: "lcd-iris"
+      port: 3317
+      targetPort: 3317
+    - name: "metrics-iris"
+      port: 36660
+      targetPort: 36660
+    - name: "iris-postgres"
+      port: 5433
+      targetPort: 5433
+    - name: "iris-indexer"
+      port: 8079
+      targetPort: 8079
+    - name: "iris-prometheus"
+      port: 9030
+      targetPort: 9030
+    - name: "p2p-terra"
+      port: 56656
+      targetPort: 56656
+    - name: "rpc-terra"
+      port: 56657
+      targetPort: 56657
+    - name: "abci-terra"
+      port: 56658
+      targetPort: 56658
+    - name: "metrics-terra"
+      port: 56660
+      targetPort: 56660
+    - name: "lcd-terra"
+      port: 5317
+      targetPort: 5317
+    - name: "terra-postgres"
+      port: 5435
+      targetPort: 5435
+    - name: "terra-prometheus"
+      port: 9050
+      targetPort: 9050
+    - name: "grafana"
+      port: 3000
+      targetPort: 3000
 ---
-
 kind: ConfigMap
 apiVersion: v1
 metadata:

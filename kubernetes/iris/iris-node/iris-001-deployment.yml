@@ -10,6 +10,9 @@ spec:
   strategy:
     type: Recreate
   replicas: 1
+  selector:
+    matchLabels:
+      service: iris-001
   template:
     metadata:
       labels:
@@ -17,46 +20,22 @@ spec:
         protocol: iris
     spec:
       containers:
-      - name: iris-001
-        image: ryanhendricks/docker-irisnet:latest
-        imagePullPolicy: Always
-        env:
-          - name: MONIKER
-            value: "A2H"
-          - name: CHAIN_ID
-            value: irishub
-          - name: SEEDS
-            value: 6a6de770deaa4b8c061dffd82e9c7f4d40c2165d@seed-1.mainnet.irisnet.org:26656,a17d7923293203c64ba75723db4d5f28e642f469@seed-2.mainnet.irisnet.org:26656
-          - name: IRIS_HOME
-            value: /.iris
-          - name: ADDR_BOOK_STRICT
-            value: "false"
-          - name: PROMETHEUS
-            value: "true"
-          - name: BOOTSTRAP
-            value: "TRUE"
-          - name: PROMETHEUS_PORT
-            value: "36660"
-          - name: LCD_PORT
-            value: "3317"
-          - name: RPC_LADDR_PORT
-            value: "36657"
-          - name: CORS_ALLOWED_ORIGINS
-            value: "*"
-          - name: CONNECTIONS_LADDR_PORT
-            value: "36656"
-          - name: PROXY_APP_PORT
-            value: "36658"
-        volumeMounts:
-          - mountPath: /.iris
-            name: iris-001
-        resources:
-          requests:
-            cpu: 500m
-            memory: 1Gi
-          limits:
-            cpu: 1000m
-            memory: 2Gi
+        - name: iris-001
+          image: ryanhendricks/docker-irisnet:latest
+          imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                name: iris-config
+          volumeMounts:
+            - mountPath: /.iris
+              name: iris-001
+          resources:
+            requests:
+              cpu: 1500m
+              memory: 4Gi
+            limits:
+              cpu: 1800m
+              memory: 6Gi
       restartPolicy: Always
       volumes:
         - name: iris-001

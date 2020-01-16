@@ -1,7 +1,7 @@
 apiVersion: v1
 data:
   # terra node config
-  MONIKER: UnionMarket
+  MONIKER: UnionMarketTerra
   CHAIN_ID: columbus-3
   BOOTSTRAP: "FALSE"
   TERRAD_HOME: /.terrad
@@ -11,6 +11,7 @@ data:
   ADDR_BOOK_STRICT: "false"
   PROMETHEUS_LISTEN_ADDR: "56660"
   MAX_OPEN_CONNECTIONS: "10"
+  BOOTSTRAP: "FALSE"
   LCD_PORT: "5317"
   RPC_PORT: "56657"
   P2P_PORT: "56656"

@@ -6,30 +6,33 @@ metadata:
     service: tezos-002
   name: tezos-002
 spec:
-  replicas: 1
   strategy:
     type: Recreate
+  replicas: 1
+  selector:
+    matchLabels:
+      service: tezos-002
   template:
     metadata:
       labels:
         service: tezos-002
     spec:
       containers:
-      - image: ryanhendricks/docker-tezos:latest
-        imagePullPolicy: Always
-        name: tezos-002
-        env:
-        - name: BOOTSTRAP
-          value: "TRUE"
-        - name: NODE_TYPE
-          value: full
-        args:
-        - tezos-node
-        resources:
-          requests:
-            cpu: 800m
-            memory: 3Gi
-          limits:
-            cpu: 1000m
-            memory: 6Gi
+        - image: ryanhendricks/docker-tezos:latest
+          imagePullPolicy: Always
+          name: tezos-002
+          env:
+            - name: BOOTSTRAP
+              value: "TRUE"
+            - name: NODE_TYPE
+              value: full
+          args:
+            - tezos-node
+          resources:
+            requests:
+              cpu: 800m
+              memory: 3Gi
+            limits:
+              cpu: 1000m
+              memory: 6Gi
       restartPolicy: Always

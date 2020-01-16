@@ -1,0 +1,32 @@
+apiVersion: v1
+data:
+  # cosmos node env
+  CHAIN_ID: irishub
+  MONIKER: UnionMarketIris
+  GENESIS_URL: https://raw.githubusercontent.com/irisnet/betanet/master/config/genesis.json
+  PERSISTENT_PEERS: 6a6de770deaa4b8c061dffd82e9c7f4d40c2165d@seed-1.mainnet.irisnet.org:26656,a17d7923293203c64ba75723db4d5f28e642f469@seed-2.mainnet.irisnet.org:26656, 595cef3914b6dfe3846f7694892e3d1e32dadfbc@35.196.175.11:36656
+  SEEDS: 6a6de770deaa4b8c061dffd82e9c7f4d40c2165d@seed-1.mainnet.irisnet.org:26656,a17d7923293203c64ba75723db4d5f28e642f469@seed-2.mainnet.irisnet.org:26656, 595cef3914b6dfe3846f7694892e3d1e32dadfbc@35.196.175.11:36656
+  IRIS_HOME: /.iris
+  ADDR_BOOK_STRICT: "false"
+  CACHE_SIZE: "10000"
+  PROMETHEUS: "true"
+  PROMETHEUS_PORT: "36660"
+  LCD_PORT: "3317"
+  RPC_LADDR_PORT: "36657"
+  CONNECTIONS_LADDR_PORT: "36656"
+  PROXY_APP_PORT:  "36658"
+  PROMETHEUS_LISTEN_ADDR: "36660"
+  MAX_OPEN_CONNECTIONS: "20"
+  BOOTSTRAP: "FALSE" # NOTE: view progress in container logs
+  # prometheus env
+  PROMETHEUS_L_ADDR: "0.0.0.0"
+  PROMETHEUS_PORT: "9030"
+  JOBNAME: "iris-001"
+  TARGET_HOST: "iris-001"
+  TARGET_PORT: "36660"
+  INSTANCE: "iris-001"
+
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: iris-config

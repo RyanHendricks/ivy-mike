@@ -6,8 +6,12 @@ metadata:
     service: iris-prometheus
   name: iris-prometheus
 spec:
+  strategy:
+    type: Recreate
   replicas: 1
-  strategy: {}
+  selector:
+    matchLabels:
+      service: iris-prometheus
   template:
     metadata:
       creationTimestamp: null
@@ -15,21 +19,11 @@ spec:
         service: iris-prometheus
     spec:
       containers:
-      - name: iris-prometheus
-        imagePullPolicy: Always
-        env:
-          - name: PROMETHEUS_L_ADDR
-            value: "0.0.0.0"
-          - name: PROMETHEUS_PORT
-            value: "9030"
-          - name: JOBNAME
-            value: "iris-001"
-          - name: TARGET_HOST
-            value: "iris-001"
-          - name: TARGET_PORT
-            value: "36660"
-          - name: INSTANCE
-            value: "iris-001"
-        image: ryanhendricks/docker-prometheus:latest
-        resources: {}
+        - name: iris-prometheus
+          imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                name: cosmos-config
+          image: ryanhendricks/docker-prometheus:latest
+          resources: {}
       restartPolicy: Always

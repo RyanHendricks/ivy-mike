@@ -6,8 +6,12 @@ metadata:
     service: grafana
   name: grafana
 spec:
+  strategy:
+    type: Recreate
   replicas: 1
-  strategy: {}
+  selector:
+    matchLabels:
+      service: grafana
   template:
     metadata:
       creationTimestamp: null
@@ -15,7 +19,7 @@ spec:
         service: grafana
     spec:
       containers:
-      - image: grafana/grafana
-        name: grafana
-        resources: {}
+        - image: grafana/grafana
+          name: grafana
+          resources: {}
       restartPolicy: Always
