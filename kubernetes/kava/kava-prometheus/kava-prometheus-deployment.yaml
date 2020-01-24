@@ -18,21 +18,11 @@ spec:
         service: kava-prometheus
     spec:
       containers:
-      - name: kava-prometheus
-        imagePullPolicy: Always
-        env:
-          - name: PROMETHEUS_L_ADDR
-            value: "0.0.0.0"
-          - name: PROMETHEUS_PORT
-            value: "9040"
-          - name: JOBNAME
-            value: "kava-001"
-          - name: TARGET_HOST
-            value: "kava-001"
-          - name: TARGET_PORT
-            value: "46660"
-          - name: INSTANCE
-            value: "kava-001"
-        image: ryanhendricks/docker-prometheus:latest
-        resources: {}
+        - name: kava-prometheus
+          imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                name: kava-config
+          image: ryanhendricks/docker-prometheus:latest
+          resources: {}
       restartPolicy: Always

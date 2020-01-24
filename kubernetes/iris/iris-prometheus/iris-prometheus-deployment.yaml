@@ -23,7 +23,7 @@ spec:
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
-                name: cosmos-config
+                name: iris-config
           image: ryanhendricks/docker-prometheus:latest
           resources: {}
       restartPolicy: Always
