@@ -12,7 +12,7 @@ data:
   PROMETHEUS: "true"
   PROMETHEUS_LISTEN_ADDR: "26660"
   MAX_OPEN_CONNECTIONS: "5"
-  BOOTSTRAP: "FALSE" # NOTE: view progress in container logs
+  BOOTSTRAP: "TRUE" # NOTE: view progress in container logs
   # prometheus env
   PROMETHEUS_L_ADDR: "0.0.0.0"
   PROMETHEUS_PORT: "9020"

@@ -7,9 +7,9 @@ metadata:
   name: grafana
 spec:
   ports:
-  - name: "grafana"
-    port: 3000
-    targetPort: 3000
+    - name: grafana
+      port: 3000
+      targetPort: 3000
   selector:
     service: grafana
 status:

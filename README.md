@@ -8,7 +8,6 @@ The default configurations are aimed at providing api/rpc connections and are de
 
 Additional information and configuration options for each node can be found in the respective subdirectory
 
-
 - [Dockerfiles](./docs/dockerfiles.md)
   - [Cosmos](./docker/docker-cosmos/README.md#docker-cosmos)
   - [Irisnet](./docker/docker-irisnet/README.md#docker-irisnet)
@@ -19,15 +18,11 @@ Additional information and configuration options for each node can be found in t
   - [Ethereum](./docker/docker-ethereum/README.md#docker-geth)
 - [Kubernetes](./docs/kubernetes.md)
 
-
 ## Notes
+
 - Cosmos node is currently configured via a shared configmap. Ideally, the other nodes will be configured the same way.
 - Currently configured to run all the nodes on a single IP by modifying the port numbers.
 - Some of the networks may be obsolete but the template specs can easily be ported to the upgraded networks or new ones entirely.
-
-
-
-
 
 ## Contributing
 

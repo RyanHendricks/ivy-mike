@@ -16,7 +16,7 @@ data:
   P2P_PORT: "46656"
   PROXY_APP_PORT: "46658"
   MAX_OPEN_CONNECTIONS: "20"
-  BOOTSTRAP: "FALSE" # NOTE: view progress in container logs
+  BOOTSTRAP: "TRUE" # NOTE: view progress in container logs
   # prometheus env
   PROMETHEUS_L_ADDR: "0.0.0.0"
   PROMETHEUS_PORT: "9040"

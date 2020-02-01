@@ -61,11 +61,11 @@ spec:
               name: regen-001
           resources:
             requests:
-              cpu: 500m
-              memory: 1Gi
-            limits:
-              cpu: 1000m
+              cpu: 800m
               memory: 2Gi
+            limits:
+              cpu: 1200m
+              memory: 3Gi
       restartPolicy: Always
       volumes:
         - name: regen-001

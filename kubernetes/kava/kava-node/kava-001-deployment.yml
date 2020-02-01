@@ -27,15 +27,15 @@ spec:
             - configMapRef:
                 name: kava-config
           volumeMounts:
-            - mountPath: /.kava
+            - mountPath: /.kvd
               name: kava-001
           resources:
             requests:
-              cpu: 1500m
-              memory: 4Gi
+              cpu: 800m
+              memory: 2Gi
             limits:
-              cpu: 1800m
-              memory: 6Gi
+              cpu: 1200m
+              memory: 3Gi
       restartPolicy: Always
       volumes:
         - name: kava-001

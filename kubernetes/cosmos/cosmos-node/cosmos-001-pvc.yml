@@ -4,10 +4,10 @@ metadata:
   name: cosmos-001
   namespace: default
 spec:
-  # storageClassName: faster
+  storageClassName: faster
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 40Gi
+      storage: 60Gi
 status: {}
