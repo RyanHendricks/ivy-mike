@@ -4,8 +4,8 @@ data:
   CHAIN_ID: irishub
   MONIKER: UnionMarketIris
   GENESIS_URL: https://raw.githubusercontent.com/irisnet/betanet/master/config/genesis.json
-  PERSISTENT_PEERS: 6a6de770deaa4b8c061dffd82e9c7f4d40c2165d@seed-1.mainnet.irisnet.org:26656,a17d7923293203c64ba75723db4d5f28e642f469@seed-2.mainnet.irisnet.org:26656, 595cef3914b6dfe3846f7694892e3d1e32dadfbc@35.196.175.11:36656
-  SEEDS: 6a6de770deaa4b8c061dffd82e9c7f4d40c2165d@seed-1.mainnet.irisnet.org:26656,a17d7923293203c64ba75723db4d5f28e642f469@seed-2.mainnet.irisnet.org:26656, 595cef3914b6dfe3846f7694892e3d1e32dadfbc@35.196.175.11:36656
+  PERSISTENT_PEERS: 595cef3914b6dfe3846f7694892e3d1e32dadfbc@35.196.175.11:36656
+  SEEDS: 595cef3914b6dfe3846f7694892e3d1e32dadfbc@35.196.175.11:36656
   IRIS_HOME: /.iris
   ADDR_BOOK_STRICT: "false"
   CACHE_SIZE: "30000"
