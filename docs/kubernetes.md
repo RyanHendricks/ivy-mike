@@ -1,4 +1,6 @@
-## Kubernetes Definitions
+# Kubernetes
+
+## Using GCP
 
 ```bash
 
@@ -6,7 +8,10 @@
 kubectl create clusterrolebinding cluster-admin-binding \
   --clusterrole cluster-admin \
   --user $(gcloud config get-value account)
-# 
+
+# or from root directory
+
+make gcp-admin
 
 ```
 

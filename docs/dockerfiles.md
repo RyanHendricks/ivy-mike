@@ -5,6 +5,7 @@ Each subdirectory contains the Dockerfile/Scripts/Config for building the respec
 ## Building
 
 To build all the images contained within the subdirectories run the following command from within the dockerfiles/ directory.
+
 ```sh
 make build-images
 ```
@@ -20,4 +21,12 @@ make regen
 make kava
 make tezos
 make ethereum
+```
+
+## Cleanup
+
+**Warning** This will remove all running containers, images, volumes, and networks!
+
+```sh
+clean-docker
 ```
