@@ -1,3 +1,7 @@
+update-changelog:
+	sh scripts/changelog.sh
+
+
 build-iris:
 	docker build --rm -f "docker/docker-irisnet/Dockerfile" -t docker-irisnet:latest docker/docker-irisnet
 
