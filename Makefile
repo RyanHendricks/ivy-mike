@@ -1,3 +1,6 @@
+nodeparty:
+	docker-compose -f "docker/docker-compose.yml" build --parallel && docker-compose -f "docker/docker-compose.yml" up -d
+
 update-changelog:
 	sh scripts/changelog.sh
 
@@ -31,10 +34,7 @@ build-images:
 
 
 clean-docker:
-	docker rm -f $(docker ps -a -q) &&
-	docker rmi $(docker images -q) &&
-	docker volume prune &&
-	docker network prune
+	sh ./scripts/dockercleanup.sh
 
 cosmos:
 	docker-compose -f "dockerfiles/docker-cosmos/docker-compose.yml" up -d --build

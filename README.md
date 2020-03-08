@@ -1,10 +1,16 @@
 # Ivy Mike
 
+## TLDR
+
+```bash
+make nodeparty
+```
+
 ## Blockchain Nodes
 
 This repo contains a collection of blockchain nodes built using Docker and Kubernetes.
 
-The default configurations are aimed at providing api/rpc connections and are deployable 'out-of-the-box'.
+The default configurations are aimed at providing api/rpc connections and are deployable 'out-of-the-box'. Configuration parameters are set at runtime via ENV thus allowing
 
 Additional information and configuration options for each node can be found in the respective subdirectory
 
