@@ -4,7 +4,6 @@ nodeparty:
 update-changelog:
 	sh scripts/changelog.sh
 
-
 build-iris:
 	docker build --rm -f "docker/docker-irisnet/Dockerfile" -t docker-irisnet:latest docker/docker-irisnet
 
@@ -30,8 +29,6 @@ build-images:
 	docker build --rm -f "docker/docker-terra/Dockerfile" -t docker-terra "docker/docker-terra"
 	docker build --rm -f "docker/docker-kava/Dockerfile" -t docker-kava:latest docker/docker-kava
 	# docker build --rm -f "docker/docker-regen/Dockerfile" -t docker-regen:latest docker/docker-regen
-
-
 
 clean-docker:
 	sh ./scripts/dockercleanup.sh
@@ -59,9 +56,6 @@ terra-compose:
 
 # ethereum:
 #   docker-compose -f "dockerfiles/docker-geth/docker-compose.yml" up -d --build
-
-
-
 
 gcp-admin:
 	kubectl create clusterrolebinding cluster-admin-binding \
@@ -100,7 +94,6 @@ kava:
 	kubectl apply -f kubernetes/kava/kava-node/ -R
 	kubectl apply -f kubernetes/kava/kava-prometheus/ -R
 
-
 regen-node:
 	kubectl apply -f kubernetes/regen/regen-node/ -R
 
@@ -121,10 +114,6 @@ terra:
 	kubectl apply -f kubernetes/terra/terra-node/ -R
 	kubectl apply -f kubernetes/terra/terra-prometheus/ -R
 
-
-
-
-
 prep-minikube:
 	sudo systemctl start libvirtd.service &&
 	sudo systemctl start virtlogd.service
@@ -140,3 +129,7 @@ stop-minikube:
 
 destroy-minikube:
 	minikube delete
+
+
+readmes:
+	sh scripts/docs.sh
