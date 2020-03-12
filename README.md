@@ -15,13 +15,14 @@ The default configurations are aimed at providing api/rpc connections and are de
 Additional information and configuration options for each node can be found in the respective subdirectory
 
 - [Dockerfiles](./docs/dockerfiles.md)
-  - [Cosmos](./docker/docker-cosmos/README.md#docker-cosmos)
-  - [Irisnet](./docker/docker-irisnet/README.md#docker-irisnet)
-  - [Regen](./docker/docker-regen/README.md#docker-regen)
-  - [Kava](./docker/docker-kava/README.md#docker-kava)
-  - [Terra](./docker/docker-terra/README.md#docker-terra)
-  - [Tezos](./docker/docker-tezos/README.md#docker-tezos)
-  - [Ethereum](./docker/docker-ethereum/README.md#docker-geth)
+  - [Cosmos](./docs/docker-cosmos/README.md)
+  - [Irisnet](./docs/docker-irisnet/README.md)
+  - [Regen](./docs/docker-regen/README.md)
+  - [Kava](./docs/docker-kava/README.md)
+  - [Terra](./docs/docker-terra/README.md)
+  - [Tezos](./docs/docker-tezos/README.md)
+  - [Ethereum](./docs/docker-ethereum/README.md)
+  - [Cyberd](./docs/docker-cyberd/README.md)
 - [Kubernetes](./docs/kubernetes.md)
 
 ## Notes
