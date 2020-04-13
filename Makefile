@@ -34,30 +34,28 @@ clean-docker:
 	sh ./scripts/dockercleanup.sh
 
 cosmos:
-	docker-compose -f "dockerfiles/docker-cosmos/docker-compose.yml" up -d --build
+	docker-compose -f "docker/docker-cosmos/docker-compose.yml" up -d --build
 
 cosmos-test:
-	docker-compose -f "dockerfiles/docker-cosmos/docker-compose-testnet.yml" up -d --build
+	docker-compose -f "docker/docker-cosmos/docker-compose-testnet.yml" up -d --build
 
 iris:
-	docker-compose -f "dockerfiles/docker-irisnet/docker-compose.yml" up -d --build
+	docker-compose -f "docker/docker-irisnet/docker-compose.yml" up -d --build
 
 terra-compose:
 	docker-compose -f "docker/docker-terra/docker-compose.yml" up -d --build
 
 # kava:
-#   docker-compose -f "dockerfiles/docker-kava/docker-compose.yml" up -d --build
+#   docker-compose -f "docker/docker-kava/docker-compose.yml" up -d --build
 
 # regen:
-#   docker-compose -f "dockerfiles/docker-regen/docker-compose.yml" up -d --build
+#   docker-compose -f "docker/docker-regen/docker-compose.yml" up -d --build
 
 # tezos:
-#   docker-compose -f "dockerfiles/docker-tezos/docker-compose.yml" up -d --build
+#   docker-compose -f "docker/docker-tezos/docker-compose.yml" up -d --build
 
 # ethereum:
-#   docker-compose -f "dockerfiles/docker-geth/docker-compose.yml" up -d --build
-
-gcp-admin:
+#   docker-compose -f "dock(no branch): 
 	kubectl create clusterrolebinding cluster-admin-binding \
 	--clusterrole cluster-admin \
 	--user $(gcloud config get-value account)
@@ -77,12 +75,7 @@ kube-cosmos:
 iris-node:
 	kubectl apply -f kubernetes/iris/iris-node/ -R
 
-iris-prometheus:
-	kubectl apply -f kubernetes/iris/iris-prometheus/ -R
-
-kube-iris:
-	kubectl apply -f kubernetes/iris/iris-node/ -R
-	kubectl apply -f kubernetes/iris/iris-prometheus/ -R
+iris-prometheus:(no branch): es/iris/iris-prometheus/ -R
 
 kava-node:
 	kubectl apply -f kubernetes/kava/kava-node/ -R

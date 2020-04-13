@@ -22,12 +22,11 @@ Optional Bootstrapping for Full Node
 Simply build and run the container specifying the following ENV variables with the desired ~~options~~
 
 BOOTSTRAP
-
-- TRUE
-- FALSE
+  - TRUE
+  - FALSE
 NODE_TYPE
-- full
-- archive
+  - full
+  - archive
 
 ## Background
 
