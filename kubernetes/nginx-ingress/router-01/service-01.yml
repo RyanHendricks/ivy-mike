@@ -49,57 +49,51 @@ spec:
     - name: "metrics-iris"
       port: 36660
       targetPort: 36660
-    - name: "iris-postgres"
-      port: 5433
-      targetPort: 5433
-    - name: "iris-indexer"
-      port: 8079
-      targetPort: 8079
     - name: "iris-prometheus"
       port: 9030
       targetPort: 9030
-    - name: "p2p-terra"
-      port: 56656
-      targetPort: 56656
-    - name: "rpc-terra"
-      port: 56657
-      targetPort: 56657
-    - name: "abci-terra"
-      port: 56658
-      targetPort: 56658
-    - name: "metrics-terra"
-      port: 56660
-      targetPort: 56660
-    - name: "lcd-terra"
-      port: 5317
-      targetPort: 5317
-    - name: "terra-postgres"
-      port: 5435
-      targetPort: 5435
-    - name: "terra-prometheus"
-      port: 9050
-      targetPort: 9050
-    - name: "p2p-kava"
-      port: 46656
-      targetPort: 46656
-    - name: "rpc-kava"
-      port: 46657
-      targetPort: 46657
-    - name: "abci-kava"
-      port: 46658
-      targetPort: 46658
-    - name: "metrics-kava"
-      port: 46660
-      targetPort: 46660
-    - name: "lcd-kava"
-      port: 4317
-      targetPort: 4317
-    - name: "kava-postgres"
-      port: 5434
-      targetPort: 5434
-    - name: "kava-prometheus"
-      port: 9040
-      targetPort: 9040
+    # - name: "p2p-terra"
+    #   port: 56656
+    #   targetPort: 56656
+    # - name: "rpc-terra"
+    #   port: 56657
+    #   targetPort: 56657
+    # - name: "abci-terra"
+    #   port: 56658
+    #   targetPort: 56658
+    # - name: "metrics-terra"
+    #   port: 56660
+    #   targetPort: 56660
+    # - name: "lcd-terra"
+    #   port: 5317
+    #   targetPort: 5317
+    # - name: "terra-postgres"
+    #   port: 5435
+    #   targetPort: 5435
+    # - name: "terra-prometheus"
+    #   port: 9050
+    #   targetPort: 9050
+    # - name: "p2p-kava"
+    #   port: 46656
+    #   targetPort: 46656
+    # - name: "rpc-kava"
+    #   port: 46657
+    #   targetPort: 46657
+    # - name: "abci-kava"
+    #   port: 46658
+    #   targetPort: 46658
+    # - name: "metrics-kava"
+    #   port: 46660
+    #   targetPort: 46660
+    # - name: "lcd-kava"
+    #   port: 4317
+    #   targetPort: 4317
+    # - name: "kava-postgres"
+    #   port: 5434
+    #   targetPort: 5434
+    # - name: "kava-prometheus"
+    #   port: 9040
+    # targetPort: 9040
     - name: "grafana"
       port: 3000
       targetPort: 3000

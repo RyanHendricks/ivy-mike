@@ -31,11 +31,11 @@ spec:
               name: cosmos-001
           resources:
             requests:
-              cpu: 800m
-              memory: 2Gi
+              cpu: 150m
+              memory: 150Mi
             limits:
-              cpu: 1200m
-              memory: 3Gi
+              cpu: 300m
+              memory: 300Mi
       restartPolicy: Always
       volumes:
         - name: cosmos-001

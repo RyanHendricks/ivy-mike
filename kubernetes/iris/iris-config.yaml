@@ -2,7 +2,7 @@ apiVersion: v1
 data:
   # cosmos node env
   CHAIN_ID: irishub
-  MONIKER: UnionMarketIris
+  MONIKER: Yucca
   GENESIS_URL: https://raw.githubusercontent.com/irisnet/betanet/master/config/genesis.json
   PERSISTENT_PEERS: 595cef3914b6dfe3846f7694892e3d1e32dadfbc@35.196.175.11:36656
   SEEDS: 595cef3914b6dfe3846f7694892e3d1e32dadfbc@35.196.175.11:36656
