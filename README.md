@@ -4,6 +4,9 @@
 
 ```bash
 make nodeparty
+#   will execute the following:
+#   docker-compose -f "docker/docker-compose.yml" build --parallel && \
+#   docker-compose -f "docker/docker-compose.yml" up -d
 ```
 
 ## Blockchain Nodes

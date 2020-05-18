@@ -115,14 +115,13 @@ unprep-minikube:
 	sudo systemctl stop libvirtd.service virtlogd.service
 
 start-minikube:
-	minikube start --cpus=6 --memory='8196mb' --vm-driver=kvm
+	minikube start --cpus=12 --memory='8196mb' --vm-driver=kvm
 
 stop-minikube:
 	minikube stop
 
 destroy-minikube:
 	minikube delete
-
 
 readmes:
 	sh scripts/docs.sh
