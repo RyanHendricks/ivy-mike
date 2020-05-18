@@ -56,9 +56,7 @@ terra-compose:
 
 # ethereum:
 #   docker-compose -f "dock(no branch): 
-	kubectl create clusterrolebinding cluster-admin-binding \
-	--clusterrole cluster-admin \
-	--user $(gcloud config get-value account)
+
 
 common:
 	kubectl apply -f kubernetes/common/ -R
@@ -75,7 +73,6 @@ kube-cosmos:
 iris-node:
 	kubectl apply -f kubernetes/iris/iris-node/ -R
 
-iris-prometheus:(no branch): es/iris/iris-prometheus/ -R
 
 kava-node:
 	kubectl apply -f kubernetes/kava/kava-node/ -R
@@ -107,9 +104,7 @@ terra:
 	kubectl apply -f kubernetes/terra/terra-node/ -R
 	kubectl apply -f kubernetes/terra/terra-prometheus/ -R
 
-prep-minikube:
-	sudo systemctl start libvirtd.service &&
-	sudo systemctl start virtlogd.service
+
 
 unprep-minikube:
 	sudo systemctl stop libvirtd.service virtlogd.service
