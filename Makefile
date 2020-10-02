@@ -73,7 +73,6 @@ kube-cosmos:
 iris-node:
 	kubectl apply -f kubernetes/iris/iris-node/ -R
 
-
 kava-node:
 	kubectl apply -f kubernetes/kava/kava-node/ -R
 
@@ -82,7 +81,6 @@ kava-prometheus:
 
 kava:
 	kubectl apply -f kubernetes/kava/kava-node/ -R
-	kubectl apply -f kubernetes/kava/kava-prometheus/ -R
 
 regen-node:
 	kubectl apply -f kubernetes/regen/regen-node/ -R
@@ -92,7 +90,6 @@ regen-prometheus:
 
 regen:
 	kubectl apply -f kubernetes/regen/regen-node/ -R
-	kubectl apply -f kubernetes/regen/regen-prometheus/ -R
 
 terra-node:
 	kubectl apply -f kubernetes/terra/terra-node/ -R
@@ -102,7 +99,6 @@ terra-prometheus:
 
 terra:
 	kubectl apply -f kubernetes/terra/terra-node/ -R
-	kubectl apply -f kubernetes/terra/terra-prometheus/ -R
 
 
 

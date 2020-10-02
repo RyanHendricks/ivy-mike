@@ -4,7 +4,10 @@
 
 ```bash
 make nodeparty
-#   will execute the following:
+```
+Builds and deploy a Cosmos, Iris, Terra, and Kava node by executing the following commands:
+
+```bash
 #   docker-compose -f "docker/docker-compose.yml" build --parallel && \
 #   docker-compose -f "docker/docker-compose.yml" up -d
 ```
