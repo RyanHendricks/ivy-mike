@@ -1,18 +1,17 @@
 # Docker-Cyberd
 
-Dockerized Cyberd Node. 
+Dockerized Cyberd Node.
 
 Differences between this and the original version [https://github.com/cybercongress/cyberd/](https://github.com/cybercongress/cyberd/)
+
 - Processes managed via supervisor for logging and autorestart
 - Repository is cloned during build process rather than copied into the build process
-
 
 ---
 
 [![MicroBadger Version](https://images.microbadger.com/badges/version/ryanhendricks/docker-cyberd.svg)](https://microbadger.com/images/ryanhendricks/docker-cyberd)
 [![CircleCI (all branches)](https://img.shields.io/circleci/project/github/RyanHendricks/docker-cyberd.svg?label=build&logo=circleci&logoColor=white)](https://circleci.com/gh/RyanHendricks/docker-cyberd)
 [![Docker Pulls](https://img.shields.io/docker/pulls/ryanhendricks/docker-cyberd.svg?logo=docker&logoColor=white)](https://hub.docker.com/r/ryanhendricks/docker-cyberd)
-
 
 [![MicroBadger Layers (latest)](https://img.shields.io/microbadger/layers/ryanhendricks/docker-cyberd/latest.svg?logo=docker&logoColor=white)](https://microbadger.com/images/ryanhendricks/docker-cyberd)
 [![MicroBadger Image-Size (latest)](https://img.shields.io/microbadger/image-size/ryanhendricks/docker-cyberd:latest.svg?logo=docker&logoColor=white)](https://microbadger.com/images/ryanhendricks/docker-cyberd)
@@ -54,7 +53,6 @@ docker build --rm -f Dockerfile -t docker-cyberd:latest .
 
 ## Running
 
-
 ```sh
 docker-compose up -d --build
 ```
@@ -93,7 +91,6 @@ curl -X GET \
 ```
 
 ## NOTES
-
 
 ## Contributing
 
