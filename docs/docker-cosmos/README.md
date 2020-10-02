@@ -11,7 +11,7 @@ Dockerized Cosmos Node with Optional Bootstrap for Fast Syncing
 [![MicroBadger Layers (latest)](https://img.shields.io/microbadger/layers/ryanhendricks/docker-cosmos/latest.svg?logo=docker&logoColor=white)](https://microbadger.com/images/ryanhendricks/docker-cosmos)
 [![MicroBadger Image-Size (latest)](https://img.shields.io/microbadger/image-size/ryanhendricks/docker-cosmos:latest.svg?logo=docker&logoColor=white)](https://microbadger.com/images/ryanhendricks/docker-cosmos)
 
-[![Codacy grade](https://img.shields.io/codacy/grade/c35da045d95b4f07b09948d19bacaa47.svg?logo=codacy)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=RyanHendricks/docker-cosmos&amp;utm_campaign=Badge_Grade)
+[![Codacy grade](https://img.shields.io/codacy/grade/bc9dcdd26c7a45d597db9fc4b372db23.svg?logo=codacy)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=RyanHendricks/docker-cosmos&amp;utm_campaign=Badge_Grade)
 
 ---
 
@@ -64,9 +64,9 @@ You can set ENV variables either in a docker-compose file or in the docker run c
 
 ### Bootstrapping
 
-  **Not currently available for cosmoshub-3**
+  <!-- **Not currently available for cosmoshub-3**
 
-  Will be reinstated once the chain surpasses 500K blocks.
+  Will be reinstated once the chain surpasses 500K blocks. -->
 
   The entrypoint script allows for the node to be bootstrapped upon creation. This drastically reduces the time required to fully sync with the network. The start up time is increased relative to the amount of time it takes the host machine to download ~20GB of data and extract it into the data directory.
 
