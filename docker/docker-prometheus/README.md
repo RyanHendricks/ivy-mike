@@ -2,7 +2,6 @@
 
 A simple Prometheus setup for monitoring a Tendermint-based node with configuration at runtime
 
-
 ## Config
 
 The following ENV variables should be set:

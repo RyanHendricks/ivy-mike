@@ -5,6 +5,7 @@
 ```bash
 make nodeparty
 ```
+
 Builds and deploy a Cosmos, Iris, Terra, and Kava node by executing the following commands:
 
 ```bash

@@ -22,11 +22,12 @@ Optional Bootstrapping for Full Node
 Simply build and run the container specifying the following ENV variables with the desired ~~options~~
 
 BOOTSTRAP
-  - TRUE
-  - FALSE
+
+- TRUE
+- FALSE
 NODE_TYPE
-  - full
-  - archive
+- full
+- archive
 
 ## Background
 
@@ -52,7 +53,7 @@ docker  run --rm -d -P ryanhendricks/docker-tezos:latest
 
 The image uses Supervisor to run the tezos node at container runtime. Supervisor also restarts the tezos-node process should it fail for some reason.
 
-## Configuration
+### Configuration
 
 The built in configuration implemented at runtime by the supervisor process is as follows:
 

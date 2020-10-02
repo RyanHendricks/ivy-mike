@@ -2,8 +2,6 @@
 
 ## Minikube
 
-
-
 ## Using GCP
 
 ```bash
