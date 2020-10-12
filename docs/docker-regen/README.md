@@ -48,6 +48,7 @@ You can set the following env variables either in a docker-compose file or in th
 - GENESIS_URL
   - defaults to regen-test-1001 github [genesis file url](https://raw.githubusercontent.com/regen-network/testnets/master/regen-test-1001/genesis.json)
 
+
 ```bash
 # Example ENV variable from config.toml
 MONIKER=regen-node
@@ -80,7 +81,6 @@ curl -X GET \
   http://127.0.0.1:26657/status? \
   -H 'cache-control: no-cache'
 ```
-
 ```bash
 # Rest Server
 curl -X GET \
