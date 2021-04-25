@@ -13,6 +13,3 @@
 [submodule "docker/docker-terra"]
 	path = docker/docker-terra
 	url = https://github.com/RyanHendricks/docker-terra
-[submodule "docker/docker-cyberd"]
-	path = docker/docker-cyberd
-	url = https://github.com/RyanHendricks/docker-cyberd
