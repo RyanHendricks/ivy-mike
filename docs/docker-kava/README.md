@@ -2,6 +2,8 @@
 
 # Docker Kava
 
+## NOTICE: No Longer Maintained
+
 <a href="https://github.com/Kava-Labs/"><img src="https://raw.githubusercontent.com/RyanHendricks/docker-kava/master/.github/kava.svg" alt="drawing" width="100"/></a>
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/ryanhendricks/docker-kava.svg?logo=docker&logoColor=white)](https://hub.docker.com/r/ryanhendricks/docker-kava) [![MicroBadger Layers (latest)](https://img.shields.io/microbadger/layers/ryanhendricks/docker-kava/latest.svg?logo=docker&logoColor=white)](https://microbadger.com/images/ryanhendricks/docker-kava) [![MicroBadger Version](https://images.microbadger.com/badges/version/ryanhendricks/docker-kava.svg)](https://microbadger.com/images/ryanhendricks/docker-kava) [![CircleCI (all branches)](https://img.shields.io/circleci/build/github/RyanHendricks/docker-kava/master?logo=circleci&token=5a11bae20d4346a49ee28e97d89c186f711a407c)](https://img.shields.io/circleci/build/github/RyanHendricks/docker-kava/master?logo=circleci&token=5a11bae20d4346a49ee28e97d89c186f711a407c) [![Codacy grade](https://img.shields.io/codacy/grade/738a34f90f1641ea9321abb27dd981f5.svg?logo=codacy)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=RyanHendricks/docker-kava&amp;utm_campaign=Badge_Grade)
@@ -12,14 +14,22 @@
 
 <!-- code_chunk_output -->
 
-- [Prerequisites](#prerequisites)
-- [Quick Start](#quick-start)
-- [Configuration](#configuration)
-- [Build](#build)
-- [Run](#run)
-- [Supervisor](#supervisor)
-- [Contributing](#contributing)
-- [License](#license)
+- [Docker Kava](#docker-kava)
+  - [NOTICE: No Longer Maintained](#notice-no-longer-maintained)
+  - [Prerequisites](#prerequisites)
+  - [Quick Start](#quick-start)
+  - [Configuration](#configuration)
+    - [Config.toml Parameters](#configtoml-parameters)
+    - [Environment Variables](#environment-variables)
+    - [Bootstrapping](#bootstrapping)
+  - [Build](#build)
+  - [Run](#run)
+  - [Supervisor](#supervisor)
+    - [Kvd](#kvd)
+    - [Kvcli Rest-Server](#kvcli-rest-server)
+  - [Contributing](#contributing)
+    - [Contributors](#contributors)
+  - [License](#license)
 
 <!-- /code_chunk_output -->
 
@@ -52,9 +62,9 @@ You can set ENV variables either in a docker-compose file or in the docker run c
 - MONIKER
   - defaults to "nonamenode"
 - CHAIN_ID
-  - defaults to kava-3
+  - defaults to kava-4
 - GENESIS_URL
-  - defaults to kava-3 github [genesis file url](https://raw.githubusercontent.com/Kava-Labs/launch/master/kava-3/genesis.json)
+  - defaults to kava-3 github [genesis file url](https://raw.githubusercontent.com/Kava-Labs/launch/master/kava-4/genesis.json)
 
 Some examples:
 
@@ -63,7 +73,7 @@ MONIKER=nonamenode
 CHAIN_ID=kava-3
 BOOTSTRAP=TRUE
 PROMETHEUS=true
-GENESIS_URL=https://raw.githubusercontent.com/Kava-Labs/launch/master/kava-3/genesis.json
+GENESIS_URL=https://raw.githubusercontent.com/Kava-Labs/launch/master/kava-4/genesis.json
 KVD_HOME=/.kvd
 ```
 
