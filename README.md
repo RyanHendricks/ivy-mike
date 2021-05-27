@@ -23,6 +23,13 @@ Containerized Blockchain Nodes
 
 ## Quickstart
 
+Some of the Dockerfile dependencies are linked as submodules, the following command will pull them onto your local machine.
+
+```bash
+git submodule init
+git submodule update
+```
+
 The following command will build (in parallel) and deploy a Cosmos, Iris, Terra, and Kava node.
 
 ```bash
