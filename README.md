@@ -6,12 +6,14 @@ Containerized Blockchain Nodes
 
 <!-- code_chunk_output -->
 
-- [Background](#background)
-- [Quickstart](#quickstart)
-- [Documention](#documention)
-- [Notes](#notes)
-- [Contributing](#contributing)
-- [License](#license)
+- [Ivy Mike](#ivy-mike)
+  - [Background](#background)
+  - [Quickstart](#quickstart)
+  - [Documention](#documention)
+  - [Notes](#notes)
+  - [Contributing](#contributing)
+    - [Contributors](#contributors)
+  - [License](#license)
 
 <!-- /code_chunk_output -->
 
@@ -29,6 +31,9 @@ Some of the Dockerfile dependencies are linked as submodules, the following comm
 git submodule init
 git submodule update
 ```
+
+Alternatively, use the `--recursive` flag when running `git clone`.
+
 
 The following command will build (in parallel) and deploy a Cosmos, Iris, Terra, and Kava node.
 
