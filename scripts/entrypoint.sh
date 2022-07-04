@@ -2,34 +2,6 @@
 
 # exit script on any error
 set -e
-echo "setting up initial configurations"
-
-
-
-# if [ ! -f "$TESTS_FOLDER/config.toml" ]; then
-#     echo "the file is not present"
-# fi
-
-# if [ -f "$TESTS_FOLDER/config.toml" ]; then
-#     echo "the file IS present"
-# fi
-
-# if [ ! -f "$TESTS_FOLDER/$TEMP_CONFIG" ]; then
-#     echo "the temp file is not present"
-# fi
-
-# if [ -f "$TESTS_FOLDER/$TEMP_CONFIG" ]; then
-#     echo "the temp file IS present"
-# fi
-
-
-
-
-update_config_file() {
-    CONFIG_FILE=$1
-    TEMP_FILE="temp-${CONFIG_FILE}"
-    echo "updating $CONFIG_FILE"
-}
 
 write_client_toml(){
 cat >client.toml <<EOF
@@ -583,12 +555,13 @@ snapshot-keep-recent = 2
 EOF
 }
 
+
+
+
 compare_replace_config(){
-    TEMP_FILE="$TESTS_FOLDER/temp/$1"
-    TARGET_FILE="$TESTS_FOLDER/config/$1"
-
-    echo "preparing $1"
-
+    TARGET_FILE=$1
+    TEMP_FILE=$2
+    
     if [ ! -f "$TARGET_FILE" ]; then
         echo "no existing file found, creating.."
         mv $TEMP_FILE $TARGET_FILE
@@ -607,46 +580,59 @@ compare_replace_config(){
 
 }
 
+download_genesis(){
+    if [ ! -z "$GENESIS_URL" ]; then
+		wget "$GENESIS_URL"
+	else
+		wget https://github.com/cosmos/mainnet/raw/master/genesis.cosmoshub-4.json.gz
+		gzip -d genesis.cosmoshub-4.json.gz
+		cp genesis.cosmoshub-4.json genesis.json
+		rm genesis.cosmoshub-4.json
+	fi
+}
 
+initialize(){
+    NODE_DIR=$1
+    BINARY=$2
 
-TESTS_FOLDER=$PWD/tests
+    if [ $# != 2]; then
+        echo "expected 4 arguments for initialize"
+        exit 1
+    fi
 
-
-mkdir -p $TESTS_FOLDER
-cd $TESTS_FOLDER
-
-mkdir -p config
-mkdir -p temp
-cd temp
-
-write_app_toml
-write_client_toml
-write_config_toml
-
-cd ..
-
-compare_replace_config "app.toml"
-compare_replace_config "client.toml"
-compare_replace_config "config.toml"
-rm -rf temp
-
-CHAIN_ID="some-other-chain"
-mkdir -p temp
-cd temp
-write_app_toml
-write_client_toml
-write_config_toml
-
-compare_replace_config "app.toml"
-compare_replace_config "client.toml"
-compare_replace_config "config.toml"
-
-cd $TESTS_FOLDER
+    if [ ! -f "$NODE_DIR/config/genesis.json" ]; then
+        echo "no existing genesis file found, initializing.."
+        $BINARY init "${MONIKER:-nonamenode}" --home="${NODE_DIR:-/.gaiad}" --chain-id="${CHAIN_ID:-cosmoshub-4}"
+        cd "${NODE_DIR}/config"
+        download_genesis
+    fi
+}
 
 
 
+update_config_files(){
+    CONFIG_DIR=$1
+    TEMP_DIR="${CONFIG_DIR}/temp"
+    
+    mkdir -p $TEMP_DIR && cd $TEMP_DIR
+    
+    write_app_toml
+    write_client_toml
+    write_config_toml
 
+    cd $CONFIG_DIR
 
+    compare_replace_config "${CONFIG_DIR}/app.toml" "${TEMP_DIR}/app.toml"
+    compare_replace_config "${CONFIG_DIR}/client.toml" "${TEMP_DIR}/client.toml"
+    compare_replace_config "${CONFIG_DIR}/config.toml" "${TEMP_DIR}/config.toml"
 
+    rm -rf $TEMP_DIR
+}
 
+main(){
+    initialize ${GAIAD_HOME:-/.gaiad} gaiad
+    update_config_files "${GAIAD_HOME:-/.gaiad}/config"
+}
+
+main
 
