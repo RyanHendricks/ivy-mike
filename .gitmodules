@@ -10,6 +10,3 @@
 [submodule "docker/docker-regen"]
 	path = docker/docker-regen
 	url = https://github.com/RyanHendricks/docker-regen
-[submodule "docker/docker-terra"]
-	path = docker/docker-terra
-	url = https://github.com/RyanHendricks/docker-terra
