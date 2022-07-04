@@ -7,6 +7,3 @@
 [submodule "docker/docker-kava"]
 	path = docker/docker-kava
 	url = https://github.com/RyanHendricks/docker-kava
-[submodule "docker/docker-regen"]
-	path = docker/docker-regen
-	url = https://github.com/RyanHendricks/docker-regen
